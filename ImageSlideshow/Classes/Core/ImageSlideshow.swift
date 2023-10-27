@@ -5,11 +5,12 @@
 //  Created by Petr Zvoníček on 30.07.15.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 @objc
 /// The delegate protocol informing about image slideshow state changes
-public protocol ImageSlideshowDelegate: class {
+public protocol ImageSlideshowDelegate: AnyObject {
     /// Tells the delegate that the current page has changed
     ///
     /// - Parameters:
@@ -599,3 +600,5 @@ extension ImageSlideshow: UIScrollViewDelegate {
         isAnimating = false
     }
 }
+
+#endif

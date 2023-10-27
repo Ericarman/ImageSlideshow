@@ -5,6 +5,7 @@
 //  Created by Pierluigi Cifani on 30/07/2018.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 #if swift(>=4.2)
@@ -15,4 +16,5 @@ typealias UIViewAnimationOptions = UIView.AnimationOptions
 typealias UIControlEvents = UIControl.Event
 typealias UIViewAutoresizing = UIView.AutoresizingMask
 #else
+#endif
 #endif

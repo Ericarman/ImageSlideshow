@@ -5,6 +5,7 @@
 //  Created by Petr Zvoníček on 01.05.17.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 /// Cusotm Activity Indicator can be used by implementing this protocol
@@ -70,3 +71,5 @@ open class DefaultActivityIndicator: ActivityIndicatorFactory {
         return activityIndicator
     }
 }
+
+#endif

@@ -5,6 +5,7 @@
 //  Created by Petr Zvoníček on 31.08.15.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 @objcMembers
@@ -123,3 +124,5 @@ open class FullScreenSlideshowViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
+
+#endif

@@ -5,6 +5,7 @@
 //  Created by Petr Zvoníček on 04.02.18.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 /// Describes the configuration of the page indicator position
@@ -82,3 +83,5 @@ public struct PageIndicatorPosition {
         return CGRect(x: xSize, y: ySize, width: indicatorSize.width, height: indicatorSize.height)
     }
 }
+
+#endif

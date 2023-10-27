@@ -6,6 +6,7 @@
 //  
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension UIImage {
@@ -28,3 +29,5 @@ extension UIImage {
         return rect
     }
 }
+
+#endif

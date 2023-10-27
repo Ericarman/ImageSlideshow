@@ -6,6 +6,7 @@
 //
 //
 
+#if canImport(UIKit)
 import UIKit
 
 @objcMembers
@@ -370,3 +371,5 @@ class ZoomOutAnimator: ZoomAnimator, UIViewControllerAnimatedTransitioning {
         }
     }
 }
+
+#endif
