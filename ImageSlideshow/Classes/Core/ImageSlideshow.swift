@@ -53,7 +53,7 @@ public enum ImagePreload {
 }
 
 /// Main view containing the Image Slideshow
-@objcMembers
+//@objcMembers
 open class ImageSlideshow: UIView {
 
     /// Scroll View to wrap the slideshow
@@ -430,7 +430,7 @@ open class ImageSlideshow: UIView {
         }
     }
 
-    func slideshowTick(_ timer: Timer) {
+    @objc func slideshowTick(_ timer: Timer) {
         let page = scrollView.frame.size.width > 0 ? Int(scrollView.contentOffset.x / scrollView.frame.size.width) : 0
         var nextPage = page + 1
 
