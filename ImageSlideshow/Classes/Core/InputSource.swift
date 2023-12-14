@@ -10,7 +10,7 @@
 import UIKit
 
 /// A protocol that can be adapted by different Input Source providers
-@objc public protocol InputSource {
+public protocol InputSource {
     /**
      Load image from the source to image view.
      - parameter imageView: Image view to load the image into.
@@ -23,7 +23,11 @@ import UIKit
      Cancel image load on the image view
      - parameter imageView: Image view that is loading the image
     */
-    @objc optional func cancelLoad(on imageView: UIImageView)
+    func cancelLoad(on imageView: UIImageView)
+}
+
+public extension InputSource {
+    func cancelLoad(on imageView: UIImageView) {}
 }
 
 /// Input Source to load plain UIImage

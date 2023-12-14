@@ -163,7 +163,7 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
     }
 
     public func cancelPendingLoad() {
-        image.cancelLoad?(on: imageView)
+        image.cancelLoad(on: imageView)
     }
 
     func retryLoadImage() {
