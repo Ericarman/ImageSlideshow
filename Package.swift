@@ -23,7 +23,7 @@ let package = Package(
                 "Classes/Core/FullScreenSlideshowViewController.swift",
                 "Classes/Core/ImageSlideshowV.swift",
                 "Classes/Core/ImageSlideshowItem.swift",
-                "Classes/Core/InputSource.swift",
+                "Classes/Core/InputSourceProtocol.swift",
                 "Classes/Core/PageIndicator.swift",
                 "Classes/Core/PageIndicatorPosition.swift",
                 "Classes/Core/SwiftSupport.swift",

@@ -149,7 +149,7 @@ open class ImageSlideshowV: UIView {
     open fileprivate(set) var scrollViewPage: Int = 0
 
     /// Input Sources loaded to slideshow
-    open fileprivate(set) var images = [InputSource]()
+    open fileprivate(set) var images = [InputSourceProtocol]()
 
     /// Image Slideshow Items loaded to slideshow
     open fileprivate(set) var slideshowItems = [ImageSlideshowItem]()
@@ -208,7 +208,7 @@ open class ImageSlideshowV: UIView {
     }
 
     fileprivate var slideshowTimer: Timer?
-    fileprivate var scrollViewImages = [InputSource]()
+    fileprivate var scrollViewImages = [InputSourceProtocol]()
     fileprivate var isAnimating: Bool = false
 
     /// Transitioning delegate to manage the transition to full screen controller
@@ -365,13 +365,13 @@ open class ImageSlideshowV: UIView {
      Set image inputs into the image slideshow
      - parameter inputs: Array of InputSource instances.
      */
-    open func setImageInputs(_ inputs: [InputSource]) {
+    open func setImageInputs(_ inputs: [InputSourceProtocol]) {
         images = inputs
         pageIndicator?.numberOfPages = inputs.count
 
         // in circular mode we add dummy first and last image to enable smooth scrolling
         if circular && images.count > 1 {
-            var scImages = [InputSource]()
+            var scImages = [InputSourceProtocol]()
 
             if let last = images.last {
                 scImages.append(last)

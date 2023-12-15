@@ -9,7 +9,7 @@
 import UIKit
 
 /// A protocol that can be adapted by different Input Source providers
-public protocol InputSource {
+public protocol InputSourceProtocol {
     /**
      Load image from the source to image view.
      - parameter imageView: Image view to load the image into.
@@ -26,13 +26,13 @@ public protocol InputSource {
     func cancelLoad(on imageView: UIImageView)
 }
 
-public extension InputSource {
+public extension InputSourceProtocol {
     func cancelLoad(on imageView: UIImageView) {}
 }
 
 /// Input Source to load plain UIImage
 @objcMembers
-open class ImageSource: NSObject, InputSource {
+open class ImageSource: NSObject, InputSourceProtocol {
     var image: UIImage
 
     /// Initializes a new Image Source with UIImage
@@ -61,7 +61,7 @@ open class ImageSource: NSObject, InputSource {
 
 /// Input Source to load an image from the main bundle
 @objcMembers
-open class BundleImageSource: NSObject, InputSource {
+open class BundleImageSource: NSObject, InputSourceProtocol {
     var imageString: String
 
     /// Initializes a new Image Source with an image name from the main bundle
@@ -80,7 +80,7 @@ open class BundleImageSource: NSObject, InputSource {
 
 /// Input Source to load an image from a local file path
 @objcMembers
-open class FileImageSource: NSObject, InputSource {
+open class FileImageSource: NSObject, InputSourceProtocol {
     var path: String
 
     /// Initializes a new Image Source with an image name from the main bundle
