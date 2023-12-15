@@ -3,19 +3,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "ImageSlideshow",
+    name: "ImageSlideShow",
     platforms: [
         .iOS(.v14),
     ],
     products: [
         .library(
-            name: "ImageSlideshow",
-            targets: ["ImageSlideshow"]),
+            name: "ImageSlideShow",
+            targets: ["ImageSlideShow"]),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "ImageSlideshow",
+            name: "ImageSlideShow",
             resources: [
                 .copy("Assets/ic_cross_white@2x.png"),
                 .copy("Assets/ic_cross_white@3x.png"),
