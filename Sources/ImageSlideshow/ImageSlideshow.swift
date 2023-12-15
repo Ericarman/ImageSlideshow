@@ -57,7 +57,7 @@ public enum ImagePreload {
 }
 
 /// Main view containing the Image Slideshow
-open class ImageSlideshowV: UIView {
+public class ImageSlideshowV: UIView, UIScrollViewDelegate {
 
     /// Scroll View to wrap the slideshow
     public let scrollView = UIScrollView()
@@ -566,40 +566,40 @@ open class ImageSlideshowV: UIView {
         }
     }
 }
-
-extension ImageSlideshowV: UIScrollViewDelegate {
-
-    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        restartTimer()
-        willBeginDragging?()
-        delegate?.imageSlideshowWillBeginDragging(self)
-    }
-
-    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        setCurrentPageForScrollViewPage(primaryVisiblePage)
-        didEndDecelerating?()
-        delegate?.imageSlideshowDidEndDecelerating(self)
-    }
-
-    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if circular && (scrollViewImages.count > 1) {
-            let regularContentOffset = scrollView.frame.size.width * CGFloat(images.count)
-
-            if scrollView.contentOffset.x >= scrollView.frame.size.width * CGFloat(images.count + 1) {
-                scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x - regularContentOffset, y: 0)
-            } else if scrollView.contentOffset.x <= 0 {
-                scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x + regularContentOffset, y: 0)
-            }
-        }
-
-        // Updates the page indicator as the user scrolls (#204). Not called when not dragging to prevent flickers
-        // when interacting with PageControl directly (#376).
-        if scrollView.isDragging {
-            pageIndicator?.page = currentPageForScrollViewPage(primaryVisiblePage)
-        }
-    }
-
-    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        isAnimating = false
-    }
-}
+//
+//extension ImageSlideshowV: UIScrollViewDelegate {
+//
+//    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        restartTimer()
+//        willBeginDragging?()
+//        delegate?.imageSlideshowWillBeginDragging(self)
+//    }
+//
+//    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        setCurrentPageForScrollViewPage(primaryVisiblePage)
+//        didEndDecelerating?()
+//        delegate?.imageSlideshowDidEndDecelerating(self)
+//    }
+//
+//    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if circular && (scrollViewImages.count > 1) {
+//            let regularContentOffset = scrollView.frame.size.width * CGFloat(images.count)
+//
+//            if scrollView.contentOffset.x >= scrollView.frame.size.width * CGFloat(images.count + 1) {
+//                scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x - regularContentOffset, y: 0)
+//            } else if scrollView.contentOffset.x <= 0 {
+//                scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x + regularContentOffset, y: 0)
+//            }
+//        }
+//
+//        // Updates the page indicator as the user scrolls (#204). Not called when not dragging to prevent flickers
+//        // when interacting with PageControl directly (#376).
+//        if scrollView.isDragging {
+//            pageIndicator?.page = currentPageForScrollViewPage(primaryVisiblePage)
+//        }
+//    }
+//
+//    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//        isAnimating = false
+//    }
+//}
