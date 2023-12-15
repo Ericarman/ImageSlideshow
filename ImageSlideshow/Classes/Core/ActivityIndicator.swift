@@ -5,7 +5,6 @@
 //  Created by Petr Zvoníček on 01.05.17.
 //
 
-#if canImport(UIKit)
 import UIKit
 
 /// Cusotm Activity Indicator can be used by implementing this protocol
@@ -60,16 +59,10 @@ open class DefaultActivityIndicator: ActivityIndicatorFactory {
 
     /// create ActivityIndicatorView instance
     open func create() -> ActivityIndicatorView {
-        #if swift(>=4.2)
         let activityIndicator = UIActivityIndicatorView(style: style)
-        #else
-        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: style)
-        #endif
         activityIndicator.color = color
         activityIndicator.hidesWhenStopped = true
 
         return activityIndicator
     }
 }
-
-#endif

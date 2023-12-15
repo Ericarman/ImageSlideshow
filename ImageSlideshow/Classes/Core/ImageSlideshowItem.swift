@@ -5,7 +5,6 @@
 //  Created by Petr Zvoníček on 30.07.15.
 //
 
-#if canImport(UIKit)
 import UIKit
 
 /// Used to wrap a single slideshow item and allow zooming on it
@@ -239,5 +238,3 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
     }
 
 }
-
-#endif

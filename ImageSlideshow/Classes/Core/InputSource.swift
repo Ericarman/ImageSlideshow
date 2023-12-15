@@ -6,7 +6,6 @@
 //
 //
 
-#if canImport(UIKit)
 import UIKit
 
 /// A protocol that can be adapted by different Input Source providers
@@ -97,5 +96,3 @@ open class FileImageSource: NSObject, InputSource {
         callback(image)
     }
 }
-
-#endif

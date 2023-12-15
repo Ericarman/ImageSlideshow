@@ -5,7 +5,6 @@
 //  Created by Petr Zvoníček on 30.07.15.
 //
 
-#if canImport(UIKit)
 import UIKit
 
 @objc
@@ -600,5 +599,3 @@ extension ImageSlideshowV: UIScrollViewDelegate {
         isAnimating = false
     }
 }
-
-#endif

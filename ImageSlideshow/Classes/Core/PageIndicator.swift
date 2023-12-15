@@ -5,7 +5,6 @@
 //  Created by Petr Zvoníček on 27.05.18.
 //
 
-#if canImport(UIKit)
 import UIKit
 
 /// Cusotm Page Indicator can be used by implementing this protocol
@@ -105,5 +104,3 @@ public class LabelPageIndicator: UILabel, PageIndicatorView {
         self.frame.size = maximumString.size(withAttributes: [.font: font as Any])
     }
 }
-
-#endif
