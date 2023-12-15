@@ -9,8 +9,8 @@ import UIKit
 
 open class FullScreenSlideshowViewController: UIViewController {
 
-    open var slideshow: ImageSlideshowV = {
-        let slideshow = ImageSlideshowV()
+    open var slideshow: ImageSlideShow = {
+        let slideshow = ImageSlideShow()
         slideshow.zoomEnabled = true
         slideshow.contentScaleMode = UIViewContentMode.scaleAspectFit
         slideshow.pageIndicatorPosition = PageIndicatorPosition(horizontal: .center, vertical: .bottom)

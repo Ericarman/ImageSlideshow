@@ -14,23 +14,23 @@ public protocol ImageSlideshowDelegate: AnyObject {
     /// - Parameters:
     ///   - imageSlideshow: image slideshow instance
     ///   - page: new page
-    func imageSlideshow(_ imageSlideshow: ImageSlideshowV, didChangeCurrentPageTo page: Int)
+    func imageSlideshow(_ imageSlideshow: ImageSlideShow, didChangeCurrentPageTo page: Int)
 
     /// Tells the delegate that the slideshow will begin dragging
     ///
     /// - Parameter imageSlideshow: image slideshow instance
-    func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideshowV)
+    func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideShow)
 
     /// Tells the delegate that the slideshow did end decelerating
     ///
     /// - Parameter imageSlideshow: image slideshow instance
-    func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideshowV)
+    func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideShow)
 }
 
 public extension ImageSlideshowDelegate {
-    func imageSlideshow(_ imageSlideshow: ImageSlideshowV, didChangeCurrentPageTo page: Int) {}
-    func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideshowV) {}
-    func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideshowV) {}
+    func imageSlideshow(_ imageSlideshow: ImageSlideShow, didChangeCurrentPageTo page: Int) {}
+    func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideShow) {}
+    func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideShow) {}
 }
 
 /** 
@@ -57,7 +57,7 @@ public enum ImagePreload {
 }
 
 /// Main view containing the Image Slideshow
-public class ImageSlideshowV: UIView, UIScrollViewDelegate {
+public class ImageSlideShow: UIView, UIScrollViewDelegate {
 
     /// Scroll View to wrap the slideshow
     public let scrollView = UIScrollView()
@@ -429,7 +429,7 @@ public class ImageSlideshowV: UIView, UIScrollViewDelegate {
 
     fileprivate func setTimerIfNeeded() {
         if slideshowInterval > 0 && scrollViewImages.count > 1 && slideshowTimer == nil {
-            slideshowTimer = Timer.scheduledTimer(timeInterval: slideshowInterval, target: self, selector: #selector(ImageSlideshowV.slideshowTick(_:)), userInfo: nil, repeats: true)
+            slideshowTimer = Timer.scheduledTimer(timeInterval: slideshowInterval, target: self, selector: #selector(ImageSlideShow.slideshowTick(_:)), userInfo: nil, repeats: true)
         }
     }
 
