@@ -7,7 +7,6 @@
 
 import UIKit
 
-@objc
 /// The delegate protocol informing about image slideshow state changes
 public protocol ImageSlideshowDelegate: AnyObject {
     /// Tells the delegate that the current page has changed
@@ -15,17 +14,23 @@ public protocol ImageSlideshowDelegate: AnyObject {
     /// - Parameters:
     ///   - imageSlideshow: image slideshow instance
     ///   - page: new page
-    @objc optional func imageSlideshow(_ imageSlideshow: ImageSlideshowV, didChangeCurrentPageTo page: Int)
+    func imageSlideshow(_ imageSlideshow: ImageSlideshowV, didChangeCurrentPageTo page: Int)
 
     /// Tells the delegate that the slideshow will begin dragging
     ///
     /// - Parameter imageSlideshow: image slideshow instance
-    @objc optional func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideshowV)
+    func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideshowV)
 
     /// Tells the delegate that the slideshow did end decelerating
     ///
     /// - Parameter imageSlideshow: image slideshow instance
-    @objc optional func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideshowV)
+    func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideshowV)
+}
+
+public extension ImageSlideshowDelegate {
+    func imageSlideshow(_ imageSlideshow: ImageSlideshowV, didChangeCurrentPageTo page: Int) {}
+    func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideshowV) {}
+    func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideshowV) {}
 }
 
 /** 
@@ -52,7 +57,6 @@ public enum ImagePreload {
 }
 
 /// Main view containing the Image Slideshow
-//@objcMembers
 open class ImageSlideshowV: UIView {
 
     /// Scroll View to wrap the slideshow
@@ -119,7 +123,7 @@ open class ImageSlideshowV: UIView {
             if oldValue != currentPage {
                 pageIndicator?.page = currentPage
                 currentPageChanged?(currentPage)
-                delegate?.imageSlideshow?(self, didChangeCurrentPageTo: currentPage)
+                delegate?.imageSlideshow(self, didChangeCurrentPageTo: currentPage)
             }
         }
     }
@@ -568,13 +572,13 @@ extension ImageSlideshowV: UIScrollViewDelegate {
     open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         restartTimer()
         willBeginDragging?()
-        delegate?.imageSlideshowWillBeginDragging?(self)
+        delegate?.imageSlideshowWillBeginDragging(self)
     }
 
     open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         setCurrentPageForScrollViewPage(primaryVisiblePage)
         didEndDecelerating?()
-        delegate?.imageSlideshowDidEndDecelerating?(self)
+        delegate?.imageSlideshowDidEndDecelerating(self)
     }
 
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {

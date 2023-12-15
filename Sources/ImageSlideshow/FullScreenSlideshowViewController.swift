@@ -7,7 +7,6 @@
 
 import UIKit
 
-@objcMembers
 open class FullScreenSlideshowViewController: UIViewController {
 
     open var slideshow: ImageSlideshowV = {
@@ -114,7 +113,7 @@ open class FullScreenSlideshowViewController: UIViewController {
         slideshow.frame = view.frame
     }
 
-    func close() {
+    @objc func close() {
         // if pageSelected closure set, send call it with current page
         if let pageSelected = pageSelected {
             pageSelected(slideshow.currentPage)
