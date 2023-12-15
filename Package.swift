@@ -16,25 +16,11 @@ let package = Package(
     targets: [
         .target(
             name: "ImageSlideshow",
-            path: "ImageSlideshow",
-            sources: [
-                "Classes/Core/ActivityIndicator.swift",
-                "Classes/Core/Bundle+Module.swift",
-                "Classes/Core/FullScreenSlideshowViewController.swift",
-                "Classes/Core/ImageSlideshowV.swift",
-                "Classes/Core/ImageSlideshowItem.swift",
-                "Classes/Core/InputSourceProtocol.swift",
-                "Classes/Core/PageIndicator.swift",
-                "Classes/Core/PageIndicatorPosition.swift",
-                "Classes/Core/SwiftSupport.swift",
-                "Classes/Core/UIImage+AspectFit.swift",
-                "Classes/Core/UIImageView+Tools.swift",
-                "Classes/Core/ZoomAnimatedTransitioning.swift",
-            ],
             resources: [
                 .copy("Assets/ic_cross_white@2x.png"),
                 .copy("Assets/ic_cross_white@3x.png"),
-            ])
+            ]
+        )
     ],
     swiftLanguageVersions: [.v5]
 )
