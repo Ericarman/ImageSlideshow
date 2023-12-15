@@ -21,7 +21,7 @@ let package = Package(
                 "Classes/Core/ActivityIndicator.swift",
                 "Classes/Core/Bundle+Module.swift",
                 "Classes/Core/FullScreenSlideshowViewController.swift",
-                "Classes/Core/ImageSlideshow.swift",
+                "Classes/Core/ImageSlideshowV.swift",
                 "Classes/Core/ImageSlideshowItem.swift",
                 "Classes/Core/InputSource.swift",
                 "Classes/Core/PageIndicator.swift",

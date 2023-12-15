@@ -16,17 +16,17 @@ public protocol ImageSlideshowDelegate: AnyObject {
     /// - Parameters:
     ///   - imageSlideshow: image slideshow instance
     ///   - page: new page
-    @objc optional func imageSlideshow(_ imageSlideshow: ImageSlideshow, didChangeCurrentPageTo page: Int)
+    @objc optional func imageSlideshow(_ imageSlideshow: ImageSlideshowV, didChangeCurrentPageTo page: Int)
 
     /// Tells the delegate that the slideshow will begin dragging
     ///
     /// - Parameter imageSlideshow: image slideshow instance
-    @objc optional func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideshow)
+    @objc optional func imageSlideshowWillBeginDragging(_ imageSlideshow: ImageSlideshowV)
 
     /// Tells the delegate that the slideshow did end decelerating
     ///
     /// - Parameter imageSlideshow: image slideshow instance
-    @objc optional func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideshow)
+    @objc optional func imageSlideshowDidEndDecelerating(_ imageSlideshow: ImageSlideshowV)
 }
 
 /** 
@@ -54,7 +54,7 @@ public enum ImagePreload {
 
 /// Main view containing the Image Slideshow
 //@objcMembers
-open class ImageSlideshow: UIView {
+open class ImageSlideshowV: UIView {
 
     /// Scroll View to wrap the slideshow
     public let scrollView = UIScrollView()
@@ -426,7 +426,7 @@ open class ImageSlideshow: UIView {
 
     fileprivate func setTimerIfNeeded() {
         if slideshowInterval > 0 && scrollViewImages.count > 1 && slideshowTimer == nil {
-            slideshowTimer = Timer.scheduledTimer(timeInterval: slideshowInterval, target: self, selector: #selector(ImageSlideshow.slideshowTick(_:)), userInfo: nil, repeats: true)
+            slideshowTimer = Timer.scheduledTimer(timeInterval: slideshowInterval, target: self, selector: #selector(ImageSlideshowV.slideshowTick(_:)), userInfo: nil, repeats: true)
         }
     }
 
@@ -564,7 +564,7 @@ open class ImageSlideshow: UIView {
     }
 }
 
-extension ImageSlideshow: UIScrollViewDelegate {
+extension ImageSlideshowV: UIScrollViewDelegate {
 
     open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         restartTimer()

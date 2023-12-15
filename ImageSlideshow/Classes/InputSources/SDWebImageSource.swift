@@ -8,7 +8,7 @@
 
 import UIKit
 #if SWIFT_PACKAGE
-import ImageSlideshow
+import ImageSlideshowV
 #endif
 import SDWebImage
 
