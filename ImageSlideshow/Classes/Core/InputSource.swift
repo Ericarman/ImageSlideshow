@@ -17,7 +17,8 @@ public protocol InputSource {
      - parameter callback: Callback called after image was set to the image view.
      - parameter image: Image that was set to the image view.
      */
-    func load(to imageView: UIImageView, with callback: @escaping (_ image: UIImage?) -> Void)
+    func load(to imageView: UIImageView,
+              with callback: @escaping (_ image: UIImage?) -> Void)
 
     /**
      Cancel image load on the image view
